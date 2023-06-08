@@ -10,7 +10,7 @@ const IndexPage = () => {
       </div>
       <ul className="flex space-x-5">
         <li>
-          <img src="/soundcloud.svg" rel="soundcloud" href="https://soundcloud.com/lucas-contini" className="hover:scale-10 duration-00" />
+          <img src="/soundcloud.svg" rel="soundcloud" href="https://soundcloud.com/lucas-contini" className="hover:scale-110 duration-00" />
         </li>
         <li>
           <img src="/instagram.svg" rel="instagram" href="https://instagram.com/lucasccontini" className="hover:scale-110 duration-00" />
