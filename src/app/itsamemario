@@ -1,0 +1,34 @@
+  const canvasRef = useRef(null);
+  const image = new Image();
+  image.src = 'spiral.svg';
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    image.onload = () => {
+      canvas.width = image.width;
+      canvas.height = image.height;
+
+      // Draw the original image on the canvas
+      ctx.drawImage(image, 0, 0);
+
+      // Get the pixel data of the image
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const pixels = imageData.data;
+
+      // Modify the pixel data to recolor the image
+      for (let i = 0; i < pixels.length; i += 4) {
+        // Adjust the red, green, and blue channels of each pixel
+        pixels[i] = 255;   // Set red channel to maximum (255)
+        pixels[i + 1] = 0; // Set green channel to minimum (0)
+        pixels[i + 2] = 0; // Set blue channel to minimum (0)
+      }
+
+      // Put the modified pixel data back to the canvas
+      ctx.putImageData(imageData, 0, 0);
+    };
+
+    // Set the source of the image
+    
+  }, []);
