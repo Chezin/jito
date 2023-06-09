@@ -1,9 +1,16 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 
 const IndexPage = () => {
+  const coinFlip = () => Math.floor(Math.random() * 10) % 2;
+  const [invertColors, setInvertColors] = useState(coinFlip());
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
+    <div
+      className={`flex flex-col items-center justify-center min-h-screen ${
+        invertColors ? "bg-black" : "bg-white"
+      }`}
+    >
       <div className="invert filter filter:hue-rotate(180deg)">
         <img
           src="/spiral.gif"
@@ -12,13 +19,16 @@ const IndexPage = () => {
           className="w-40 h-40 mb-8"
         />
       </div>
-      <ul className="flex space-x-5">
+      <ul className="flex space-x-5 z-50">
         <li>
           <a href="https://soundcloud.com/lucas-contini">
             <img
               src="/soundcloud.svg"
               rel="soundcloud"
-              className="hover:scale-110 duration-00"
+              className={`hover:scale-110 hover:invert duration-100 cursor-pointer ${
+                invertColors ? "" : "invert"
+              }`}
+              onMouseEnter={() => setInvertColors(!invertColors)}
             />
           </a>
         </li>
@@ -27,7 +37,10 @@ const IndexPage = () => {
             <img
               src="/instagram.svg"
               rel="instagram"
-              className="hover:scale-110 duration-00"
+              className={`hover:scale-110 duration-100 cursor-pointer ${
+                invertColors ? "" : "invert"
+              }`}
+              onMouseEnter={() => setInvertColors(!invertColors)}
             />
           </a>
         </li>
@@ -36,16 +49,23 @@ const IndexPage = () => {
             <img
               src="/youtube.svg"
               rel="youtube"
-              className="hover:scale-110 duration-00"
+              className={`hover:scale-110 duration-100 cursor-pointer ${
+                invertColors ? "" : "invert"
+              }`}
+              onMouseEnter={() => setInvertColors(!invertColors)}
             />
           </a>
         </li>
+
         <li>
           <a href="https://open.spotify.com/user/lucaschezin">
             <img
               src="/spotify.svg"
               rel="spotify"
-              className="hover:scale-110 duration-00"
+              className={`hover:scale-110 duration-100 cursor-pointer ${
+                invertColors ? "" : "invert"
+              }`}
+              onMouseEnter={() => setInvertColors(!invertColors)}
             />
           </a>
         </li>
