@@ -9,7 +9,7 @@ const IndexPage = () => {
     <div
       className={`flex flex-col items-center justify-center min-h-screen ${
         invertColors ? "bg-black" : "bg-white"
-      }`}
+      } transition-colors duration-500`}
     >
       <div className="invert filter filter:hue-rotate(180deg)">
         <img
